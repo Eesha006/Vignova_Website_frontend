@@ -1,0 +1,579 @@
+/* ============================================================
+   VIGNOVA MARKETING — DESIGN SYSTEM
+   Palette: sampled directly from the Vignova logo —
+   navy + Elevate-blue (primary) + Engage-green + Empower-gold
+   Type: Fraunces (display) / Inter (body) / IBM Plex Mono (data)
+   ============================================================ */
+
+:root {
+  /* Color tokens */
+  --ink: #0b1d35;
+  --ink-soft: #142a47;
+  --ink-line: rgba(247, 246, 243, 0.1);
+  --paper: #f7f6f3;
+  --paper-dim: #f2f0ea;
+  --slate: #5b6172;
+  --slate-soft: #8a90a0;
+  --blue: #0080d6;
+  --blue-deep: #0068af;
+  --blue-bright: #4fa8e8;
+  --green: #4ca321;
+  --gold: #f5a623;
+  --white: #ffffff;
+
+  /* Type */
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", monospace;
+
+  /* Rhythm */
+  --section-pad: clamp(4.5rem, 8vw, 8rem);
+  --gutter: clamp(1.5rem, 5vw, 5rem);
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img, svg {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue-deep);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.container-vg {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.section {
+  padding-top: var(--section-pad);
+  padding-bottom: var(--section-pad);
+  position: relative;
+}
+
+.section-dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  margin-bottom: 1.25rem;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--blue-deep);
+  display: inline-block;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  font-weight: 500;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.1rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-weight: 500;
+}
+
+p {
+  margin: 0;
+}
+
+.lede {
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  color: var(--slate);
+  line-height: 1.6;
+  max-width: 46ch;
+}
+
+.section-dark .lede {
+  color: var(--slate-soft);
+}
+
+.section-dark .eyebrow {
+  color: var(--blue-bright);
+}
+
+.section-dark .eyebrow::before {
+  background: var(--blue-bright);
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--slate-soft);
+}
+
+/* Buttons */
+.btn-vg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.7rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.35s var(--ease), background 0.35s var(--ease), border-color 0.35s var(--ease), color 0.35s var(--ease);
+  white-space: nowrap;
+}
+
+.btn-vg:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn-primary:hover {
+  background: var(--blue-deep);
+  color: var(--paper);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: rgba(10, 14, 23, 0.18);
+  color: var(--ink);
+}
+
+.btn-outline:hover {
+  border-color: var(--ink);
+}
+
+.section-dark .btn-outline {
+  border-color: rgba(247, 246, 243, 0.25);
+  color: var(--paper);
+}
+
+.section-dark .btn-outline:hover {
+  border-color: var(--paper);
+}
+
+.btn-ghost-blue {
+  background: transparent;
+  border-color: rgba(0, 128, 214, 0.5);
+  color: var(--blue-bright);
+}
+
+.btn-ghost-blue:hover {
+  background: var(--blue-deep);
+  border-color: var(--blue-deep);
+  color: var(--paper);
+}
+
+/* Cards */
+.card-vg {
+  background: var(--white);
+  border: 1px solid rgba(10, 14, 23, 0.07);
+  border-radius: var(--radius-md);
+  padding: 2.1rem;
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s var(--ease);
+}
+
+.card-vg:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px -30px rgba(10, 14, 23, 0.25);
+  border-color: rgba(0, 128, 214, 0.4);
+}
+
+/* Divider */
+.hr-vg {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(10, 14, 23, 0.12), transparent);
+  border: none;
+}
+
+.section-dark .hr-vg {
+  background: linear-gradient(90deg, transparent, var(--ink-line), transparent);
+}
+
+/* Grain / glass helpers */
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glass-dark {
+  background: rgba(20, 42, 71, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(247, 246, 243, 0.08);
+}
+
+::selection {
+  background: var(--blue-deep);
+  color: var(--paper);
+}
+
+.text-gold { color: var(--gold); }
+.text-green { color: var(--green); }
+.text-blue { color: var(--blue-deep); }
+.text-slate { color: var(--slate); }
+/* ---------- Portfolio Card ---------- */
+
+.portfolio-card{
+    background:#ffffff;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 20px 45px rgba(0,0,0,.08);
+    transition:.35s ease;
+    height:100%;
+}
+
+.portfolio-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 30px 60px rgba(0,0,0,.15);
+}
+
+/* ---------- Image ---------- */
+
+.portfolio-image{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+    background:#fff;
+}
+
+/* ---------- Content ---------- */
+
+.portfolio-content{
+    padding:28px;
+}
+
+.portfolio-category{
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-size:12px;
+    color:#7a7a7a;
+    margin-bottom:12px;
+    font-weight:600;
+}
+
+/* ---------- Luxury Heading ---------- */
+
+.portfolio-title{
+    font-family:"Fraunces", serif;
+    font-size:42px;
+    font-weight:500;
+    line-height:1.1;
+    color:#0f172a;
+    margin-bottom:16px;
+}
+
+/* ---------- Description ---------- */
+
+.portfolio-description{
+    font-size:16px;
+    line-height:1.8;
+    color:#666;
+}
+
+/* ---------- Mobile ---------- */
+
+@media(max-width:768px){
+
+.portfolio-title{
+    font-size:32px;
+}
+
+.portfolio-content{
+    padding:22px;
+}
+
+}
+/* ============================================================
+   VIGNOVA MARKETING — RESPONSIVE DESIGN
+   Mobile + Tablet + Laptop
+   ============================================================ */
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 1024px) {
+
+  .container-vg {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .card-vg {
+    padding: 1.75rem;
+  }
+
+  .portfolio-content {
+    padding: 24px;
+  }
+
+  .portfolio-title {
+    font-size: 36px;
+  }
+
+  .btn-vg {
+    padding: 0.85rem 1.4rem;
+  }
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 768px) {
+
+  body {
+    font-size: 15px;
+  }
+
+  .container-vg {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  h1 {
+    font-size: clamp(2.3rem, 11vw, 3.2rem);
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  .lede {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 1rem;
+  }
+
+  .mono-label {
+    font-size: 0.72rem;
+  }
+
+  /* Buttons */
+
+  .btn-vg {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  /* Cards */
+
+  .card-vg {
+    padding: 1.4rem;
+    border-radius: 16px;
+  }
+
+  /* Portfolio */
+
+  .portfolio-card {
+    border-radius: 18px;
+  }
+
+  .portfolio-content {
+    padding: 22px;
+  }
+
+  .portfolio-title {
+    font-size: 32px;
+  }
+
+  .portfolio-description {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .portfolio-category {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+}
+
+
+/* ---------- SMALL MOBILE ---------- */
+
+@media (max-width: 480px) {
+
+  .container-vg {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.85rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .lede {
+    font-size: 0.95rem;
+  }
+
+  .btn-vg {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .portfolio-content {
+    padding: 18px;
+  }
+
+  .portfolio-title {
+    font-size: 28px;
+  }
+
+  .portfolio-description {
+    font-size: 14px;
+  }
+
+}
+/* ---------- HERO LOGO RESPONSIVE ---------- */
+
+@media (max-width: 1199px) {
+  .hero-logo {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn-vg {
+    width: 100%;
+  }
+} 
+/* ---------- HERO LOGO ---------- */
+
+@media (max-width: 1199px) {
+  .hero-logo {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .hero-logo {
+    right: 1rem !important;
+    width: 300px !important;
+    height: 300px !important;
+    padding: 1.8rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn-vg {
+    width: 100%;
+  }
+}
