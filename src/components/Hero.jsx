@@ -21,11 +21,14 @@ export default function Hero() {
       id="top"
       className="section-dark"
       style={{
+        width: '100vw',
+        maxWidth: '100vw',
         paddingTop: 'clamp(9rem, 16vw, 12rem)',
         paddingBottom: 'clamp(5rem, 10vw, 7rem)',
         position: 'relative',
         overflow: 'hidden',
       }}
+
     >
       {/* Ambient background */}
       <div
